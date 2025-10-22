@@ -25,7 +25,7 @@ nav a:hover {
 main {
   background: white;
   padding: 20px;
-  margin: 20px auto;
+  margin: 20px;
   width: 80%;
   box-shadow: 0 0 10px rgba(0,0,0,0.1);
 }
