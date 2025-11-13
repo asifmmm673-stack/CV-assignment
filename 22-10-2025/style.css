@@ -97,6 +97,31 @@ header nav a:hover {
   gap: 20px;
 }
 
+/* Header logo styling */
+.header-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo-section {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.logo-img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+}
+
+.logo-text {
+  font-size: 1.5rem;
+  color: #fff;
+  font-weight: bold;
+}
+
 .project {
   background: white;
   border: 1px solid #ddd;
