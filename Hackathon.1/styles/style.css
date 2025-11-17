@@ -1,0 +1,846 @@
+/* -------------------------------------- */
+/* 1. CSS Reset & Global Variables */
+/* -------------------------------------- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    /* Figma سے حاصل کردہ رنگ */
+    --primary-color: #FF7E00; /* مین ایکشن رنگ: نارنجی */
+    --secondary-color: #2D2D2D; /* ٹیکسٹ کا گہرا رنگ */
+    --text-color-light: #6A6A6A; /* متن کا ہلکا رنگ */
+    --background-light: #F8F8F8; /* ہیرو/سیکشن کے لیے ہلکا پس منظر */
+    --white: #FFFFFF;
+    --card-bg: #FFFFFF;
+    
+    /* فونٹ فیملی (فرض کریں کہ یہ Poppins ہے یا Figma سے حاصل کردہ) */
+    --font-family: 'Poppins', sans-serif; 
+    
+    /* لے آؤٹ */
+    --container-max-width: 1240px;
+    --padding-section: 80px 0;
+}
+
+/* -------------------------------------- */
+/* 2. Global & Utility Styles */
+/* -------------------------------------- */
+body {
+    font-family: var(--font-family);
+    color: var(--secondary-color);
+    line-height: 1.6;
+    background-color: var(--white);
+}
+
+.container {
+    max-width: var(--container-max-width);
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* عمومی بٹن اسٹائل */
+.btn {
+    padding: 12px 28px;
+    border: none;
+    cursor: pointer;
+    border-radius: 8px; 
+    font-weight: 600;
+    text-decoration: none;
+    transition: background-color 0.3s, transform 0.2s;
+    font-size: 16px;
+    text-align: center;
+    display: inline-block;
+}
+
+.btn-primary {
+    background-color: var(--primary-color);
+    color: var(--white);
+}
+
+.btn-primary:hover {
+    background-color: #E06C00; 
+    transform: translateY(-1px);
+}
+
+.btn-signin {
+    background-color: transparent;
+    color: var(--secondary-color);
+    font-weight: 500;
+}
+
+.highlight {
+    color: var(--primary-color);
+}
+
+.section-tag {
+    color: var(--primary-color);
+    font-size: 14px;
+    font-weight: 600;
+    text-align: center;
+    margin-bottom: 8px;
+    text-transform: uppercase;
+}
+
+.section-heading {
+    font-size: 2.5em;
+    text-align: center;
+    margin-bottom: 50px;
+    line-height: 1.2;
+}
+
+.section-heading-left {
+    font-size: 2.5em;
+    margin-bottom: 30px;
+    line-height: 1.2;
+    text-align: left;
+}
+
+/* -------------------------------------- */
+/* 3. Header & Navbar Styling */
+/* -------------------------------------- */
+header {
+    padding: 20px 0;
+}
+
+header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo img {
+    height: 30px; 
+    margin-right: 5px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: var(--secondary-color);
+    margin: 0 15px;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.nav-links a:hover {
+    color: var(--primary-color);
+}
+
+.nav-buttons .btn {
+    margin-left: 10px;
+    padding: 8px 20px;
+}
+
+/* -------------------------------------- */
+/* 4. Hero Section & Search Form */
+/* -------------------------------------- */
+.hero-section {
+    background-color: var(--background-light);
+    padding-bottom: 150px; /* سرچ فارم کے فلوٹنگ اثر کے لیے جگہ */
+}
+
+.hero-layout {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 40px;
+    padding-top: 50px;
+    padding-bottom: 50px;
+}
+
+.hero-content {
+    flex: 1;
+    max-width: 500px;
+}
+
+.hero-content h1 {
+    font-size: 3.5em; 
+    line-height: 1.2;
+    margin-bottom: 20px;
+}
+
+.hero-content p {
+    color: var(--text-color-light);
+    margin-bottom: 30px;
+    font-size: 1.1em;
+}
+
+.app-links a {
+    margin-right: 15px;
+    display: inline-block;
+}
+
+.app-links img {
+    height: 45px; 
+}
+
+.hero-image {
+    flex: 1;
+    text-align: right;
+}
+
+.hero-image img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* سرچ فارم کا فلوٹنگ اسٹائل */
+.serch-fom-wrapper {
+    margin-top: -100px; 
+    position: relative;
+    z-index: 10;
+}
+
+.car-search-form {
+    background-color: var(--white);
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.05);
+    display: flex;
+    gap: 20px;
+    align-items: center;
+}
+
+.input-group {
+    flex-grow: 1;
+    position: relative;
+}
+
+.input-group label {
+    display: block;
+    font-size: 12px;
+    color: var(--text-color-light);
+    margin-bottom: 5px;
+}
+
+.input-group input {
+    border: none;
+    width: 100%;
+    padding: 5px 0 5px 30px; 
+    font-size: 16px;
+    outline: none;
+    border-bottom: 1px solid #E0E0E0; 
+}
+
+.input-group img {
+    position: absolute;
+    left: 0;
+    top: 55%;
+    transform: translateY(-50%);
+    height: 20px;
+    pointer-events: none;
+}
+
+.btn-search {
+    padding: 15px 35px;
+    font-size: 16px;
+    flex-shrink: 0; 
+}
+
+/* -------------------------------------- */
+/* 5. Working Steps Section (How It Works) */
+/* -------------------------------------- */
+.step-container {
+    display: flex;
+    justify-content: space-between;
+    gap: 30px;
+    margin-top: 30px;
+    text-align: center;
+    padding: var(--padding-section);
+}
+
+.step-card {
+    flex-basis: 33.33%; 
+    padding: 20px;
+}
+
+.step-card img {
+    width: 60px; 
+    height: 60px;
+    margin-bottom: 20px;
+}
+
+.step-card h3 {
+    font-size: 1.3em;
+    margin-bottom: 10px;
+    color: var(--secondary-color);
+}
+
+.step-card p {
+    color: var(--text-color-light);
+}
+
+/* -------------------------------------- */
+/* 6. Brand Logos Section */
+/* -------------------------------------- */
+.brand-logos-section {
+    padding: 40px 0;
+    border-top: 1px solid #eee;
+    border-bottom: 1px solid #eee;
+    margin-bottom: 80px;
+}
+
+.logos-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    opacity: 0.7; 
+}
+
+.logos-container img {
+    max-height: 40px; 
+    width: auto;
+}
+
+/* -------------------------------------- */
+/* 7. Why Choose Us / Best Experience Section */
+/* -------------------------------------- */
+.best-experience-section {
+    padding: var(--padding-section);
+}
+
+.experience-layout {
+    display: flex;
+    align-items: center;
+    gap: 80px;
+}
+
+.experience-image {
+    flex: 1;
+    text-align: center;
+}
+
+.experience-image img {
+    max-width: 100%;
+    height: auto;
+}
+
+.experience-content {
+    flex: 1;
+}
+
+.features-list {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* دو کالموں میں تقسیم */
+    gap: 30px 40px;
+    margin-top: 40px;
+}
+
+.feature-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 15px;
+}
+
+.feature-item img {
+    width: 35px;
+    height: 35px;
+    flex-shrink: 0; /* آئیکن کو سکڑنے سے روکیں */
+}
+
+.feature-item h4 {
+    margin-bottom: 5px;
+    font-size: 1.1em;
+}
+
+.feature-item p {
+    font-size: 0.9em;
+    color: var(--text-color-light);
+}
+
+/* -------------------------------------- */
+/* 8. Popular Cars Rental Deals Section */
+/* -------------------------------------- */
+.popular-cars-section {
+    padding: var(--padding-section);
+    background-color: var(--background-light);
+}
+
+.car-deals-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* 4 برابر کالم */
+    gap: 30px;
+    margin-top: 50px;
+}
+
+.car-card {
+    background-color: var(--card-bg);
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.03);
+    text-align: center;
+    transition: transform 0.3s;
+}
+
+.car-card:hover {
+    transform: translateY(-5px);
+}
+
+.car-image {
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 15px;
+}
+
+.car-card h3 {
+    font-size: 1.4em;
+    margin-bottom: 10px;
+}
+
+.car-specs {
+    color: var(--text-color-light);
+    font-size: 0.9em;
+    margin-bottom: 20px;
+}
+
+.car-specs span:first-child::after {
+    content: " | ";
+    margin: 0 5px;
+}
+
+.car-pricing {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.price {
+    font-size: 1.5em;
+    font-weight: 700;
+}
+
+.price .currency {
+    color: var(--primary-color);
+}
+
+.price .period {
+    font-size: 0.6em;
+    font-weight: 400;
+    color: var(--text-color-light);
+}
+
+.btn-rent {
+    padding: 8px 18px;
+    font-size: 0.9em;
+}
+
+.show-more-link {
+    text-align: center;
+    margin-top: 40px;
+}
+
+.show-more-link a {
+    color: var(--primary-color);
+    text-decoration: none;
+    font-weight: 600;
+}
+
+/* -------------------------------------- */
+/* 9. Testimonials / Feedback Section */
+/* -------------------------------------- */
+.testimonials-section {
+    padding: var(--padding-section);
+    position: relative;
+    overflow: hidden; /* ڈیزائن میں شیپس کے لیے */
+}
+
+.feedback-container {
+    display: flex;
+    justify-content: center; /* کارڈز کو درمیان میں لائیں */
+    align-items: stretch;
+    gap: 30px;
+    margin-top: 50px;
+}
+
+.testimonial-card {
+    background-color: var(--card-bg);
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    padding: 40px 30px;
+    width: 350px; /* مرکزی کارڈ کا مقررہ سائز */
+    text-align: center;
+    position: relative;
+    z-index: 2;
+    transform: scale(0.85); /* مرکزی کارڈ کے مقابلے میں تھوڑا چھوٹا */
+    opacity: 0.5; /* سائیڈ کارڈز کو ہلکا کریں */
+    transition: all 0.5s;
+}
+
+.center-card {
+    transform: scale(1); /* مرکزی کارڈ کو نارمل سائز دیں */
+    opacity: 1; /* مرکزی کارڈ کو مکمل نمایاں کریں */
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+}
+
+.reviewer-photo {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin: -70px auto 20px auto; /* اوپر کی طرف کھینچنے کے لیے */
+    border: 5px solid var(--white);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.stars {
+    color: gold;
+    font-size: 1.2em;
+    margin-bottom: 15px;
+}
+
+.review-text {
+    font-size: 1.1em;
+    margin-bottom: 20px;
+}
+
+.reviewer-name {
+    font-weight: 600;
+    color: var(--secondary-color);
+}
+
+.reviewer-location {
+    font-size: 0.9em;
+    color: var(--text-color-light);
+}
+
+/* -------------------------------------- */
+/* 10. Download App Section */
+/* -------------------------------------- */
+.download-app-section {
+    padding: var(--padding-section);
+    background-color: var(--primary-color);
+}
+
+.download-layout {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 50px;
+    color: var(--white); /* ٹیکسٹ رنگ سفید کریں */
+}
+
+.download-content {
+    flex: 1;
+    max-width: 500px;
+}
+
+.download-content .section-tag {
+    color: var(--white); 
+    text-align: left;
+    margin-bottom: 15px;
+}
+
+.download-content h2 {
+    font-size: 2.5em;
+    line-height: 1.2;
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.download-content .highlight {
+    color: var(--secondary-color); /* ڈیزائن میں یہ حصہ نمایاں ہے */
+}
+
+.download-app-links {
+    margin-top: 30px;
+}
+
+.download-image {
+    flex: 1;
+    text-align: right;
+}
+
+.download-image img {
+    max-height: 450px;
+    width: auto;
+}
+
+/* -------------------------------------- */
+/* 11. Footer Styling */
+/* -------------------------------------- */
+.main-footer {
+    background-color: var(--secondary-color);
+    color: var(--white);
+    padding-top: 60px;
+}
+
+.footer-layout {
+    display: flex;
+    justify-content: space-between;
+    gap: 30px;
+    padding-bottom: 40px;
+}
+
+.footer-col {
+    flex: 1;
+    max-width: 250px;
+}
+
+.company-info .footer-logo {
+    display: flex;
+    align-items: center;
+    font-size: 1.5em;
+    margin-bottom: 20px;
+}
+
+.company-info .footer-logo img {
+    height: 30px;
+    margin-right: 5px;
+    filter: brightness(0) invert(1); /* لوگو کو سفید کریں */
+}
+
+.company-info p {
+    font-size: 0.9em;
+    margin-bottom: 10px;
+    color: #cccccc;
+    display: flex;
+    align-items: center;
+}
+
+.company-info p img {
+    width: 18px;
+    margin-right: 10px;
+    filter: brightness(0) invert(1);
+}
+
+.footer-col h4 {
+    font-size: 1.1em;
+    margin-bottom: 20px;
+}
+
+.footer-col ul {
+    list-style: none;
+}
+
+.footer-col ul li a {
+    text-decoration: none;
+    color: #cccccc;
+    font-size: 0.9em;
+    line-height: 2.2;
+    transition: color 0.2s;
+    display: flex;
+    align-items: center;
+}
+
+.footer-col ul li a img {
+    width: 20px;
+    margin-right: 10px;
+    filter: brightness(0) invert(1);
+}
+
+.footer-col ul li a:hover {
+    color: var(--primary-color);
+}
+
+.footer-copyright {
+    border-top: 1px solid #444;
+    padding: 20px 0;
+    text-align: center;
+    font-size: 0.85em;
+    color: #888;
+}
+
+.footer-copyright p {
+    margin: 5px 0;
+}
+@media (max-width: 1024px) {
+    
+    .section-heading {
+        font-size: 2em;
+    }
+    
+    .hero-content h1 {
+        font-size: 2.8em;
+    }
+
+    .car-search-form {
+        padding: 20px;
+        gap: 15px;
+    }
+    
+    
+    .car-deals-container {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    
+    .features-list {
+        grid-template-columns: 1fr;
+    }
+}
+@media (max-width: 768px) {
+    
+    
+    header .container {
+        flex-wrap: wrap; 
+        justify-content: center;
+    }
+
+    .nav-links {
+        order: 3; 
+        flex-basis: 100%; 
+        text-align: center;
+        margin-top: 15px;
+    }
+    
+    .nav-links a {
+        margin: 0 8px;
+    }
+    
+    .nav-buttons {
+        order: 2;
+    }
+    
+    
+    .hero-layout {
+        flex-direction: column; 
+        text-align: center;
+        padding-top: 30px;
+    }
+    
+    .hero-content {
+        max-width: 100%;
+        order: 2;
+    }
+    
+    .hero-image {
+        order: 1;
+        text-align: center;
+    }
+
+    .hero-content h1 {
+        font-size: 2.2em;
+    }
+    
+    .app-links {
+        text-align: center;
+    }
+
+    .car-search-form {
+        flex-wrap: wrap;
+    }
+
+    .car-search-form .input-group {
+        flex-basis: calc(50% - 10px); 
+    }
+    
+    .btn-search {
+        flex-basis: 100%; 
+    }
+
+    .step-container {
+        flex-wrap: wrap; 
+        gap: 40px;
+    }
+    
+    .step-card {
+        flex-basis: 45%; 
+    }
+
+    .logos-container {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    
+    .experience-layout {
+        flex-direction: column;
+        gap: 40px;
+    }
+
+    .experience-content .section-heading-left {
+        text-align: center;
+    }
+
+    .car-deals-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .feedback-container {
+        gap: 15px;
+    }
+
+    .testimonial-card {
+        width: 300px;
+        padding: 30px 20px;
+    }
+
+    .download-layout {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .download-content .section-tag,
+    .download-content h2 {
+        text-align: center;
+    }
+
+    .download-app-links {
+        text-align: center;
+    }
+    
+    .footer-layout {
+        flex-wrap: wrap;
+        justify-content: flex-start;
+    }
+    
+    .footer-col {
+        flex-basis: 50%; 
+        max-width: 50%;
+        margin-bottom: 30px;
+    }
+}
+@media (max-width: 480px) {
+    
+    .container {
+        padding: 0 15px;
+    }
+
+    .hero-content h1 {
+        font-size: 1.8em;
+    }
+    
+    .hero-section {
+        padding-bottom: 120px;
+    }
+
+    .car-search-form .input-group {
+        flex-basis: 100%;
+    }
+
+    .step-card {
+        flex-basis: 100%; 
+    }
+    
+    .car-deals-container {
+        grid-template-columns: 1fr;
+    }
+
+    .experience-content .section-heading-left,
+    .section-heading {
+        font-size: 1.8em;
+        text-align: center;
+    }
+
+    .testimonial-card {
+        transform: scale(1);
+        opacity: 1;
+        width: 100%;
+    }
+    
+    .feedback-container {
+        justify-content: center;
+        flex-wrap: wrap; 
+    }
+
+    .partial-left, .partial-right {
+        display: none;
+    }
+
+    
+    .footer-col {
+        flex-basis: 100%;
+        max-width: 100%;
+    }
+}
